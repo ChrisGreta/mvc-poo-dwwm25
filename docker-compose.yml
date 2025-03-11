@@ -10,16 +10,16 @@ services:
     # - ALLOW_OVERRIDE=all
     # depends_on:
 
-  mysql:
-    image: mysql:latest
-    container_name: mysql_container
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: greta_teacher
-      MYSQL_DATABASE: db_refuge_animaux
-      MYSQL_USER: greta
-      MYSQL_PASSWORD: greta_refuge
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./db:/var/lib/mysql
+#  mysql:
+#   image: mysql:latest
+#    container_name: mysql_container
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: TBD
+#      MYSQL_DATABASE: TBD
+#      MYSQL_USER: TBD
+#      MYSQL_PASSWORD: TBD
+#    ports:
+#      - "TBD:TBD"
+#    volumes:
+#      - ./db:/var/lib/mysql
