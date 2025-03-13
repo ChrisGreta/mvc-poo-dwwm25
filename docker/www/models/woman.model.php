@@ -1,15 +1,56 @@
 <?php
+    class woman{
+        public $id;
+        public $nom;
+        public $prenom;
+        public $date_naissance;
+        public $date_deces;
+        public $description;
+        public $image;
+        public $domaine;
+        public $faits_historiques;
+        
 
-
+        public function __construct($id, $nom, $prenom, $date_naissance, $date_deces, $description, $image, $faits_historiques = [], $domaine = "informatique") {
+            $this->id                 = $id; // ✅ Affectation correcte
+            $this->nom                = $nom;
+            $this->prenom             = $prenom;
+            $this->date_naissance     = $date_naissance;
+            $this->date_deces         = $date_deces;
+            $this->description        = $description;
+            $this->image              = $image;
+            $this->domaine            = $domaine;
+            $this->faits_historiques  = $faits_historiques; // ✅ Affectation correcte
+        }
+        public function calculerAgeDeces() {
+            if ($this->date_deces) {
+                $dateNaissance = new DateTime($this->date_naissance);
+                $dateDeces = new DateTime($this->date_deces);
+                $age = $dateNaissance->diff($dateDeces)->y;
+                return $age . " ans";
+            } else {
+                return "Toujours en vie";
+            }
+        }
+    public function getNomPrenom(){
+        return "Nom Prénom".$this->prenom." ".$this->nom;
+    }
+}
     function getWomen(){
         $womenCelebs = [
             [
                 "nom" => "Curie",
                 "prenom" => "Marie",
                 "date_naissance" => "1867-11-07",
+                "date_deces" => "1954-04-15",
                 "description" => "Marie Curie était une physicienne et chimiste polonaise naturalisée française. Elle est surtout connue pour ses travaux pionniers sur la radioactivité. Elle est la première femme à avoir reçu un prix Nobel, la première personne et la seule femme à l'avoir reçu deux fois, et la seule personne à l'avoir reçu dans deux domaines scientifiques différents (physique et chimie).",
                 "image" => "https://upload.wikimedia.org/wikipedia/commons/a/a9/Marie_Curie_c1920.jpg",
-                "domaine" => "Science"
+                "domaine" => "Science",
+                "faits_historiques" => [
+                    "Première femme à recevoir un prix Nobel en 1903.",
+                    "Seule personne à avoir reçu deux prix Nobel dans deux domaines scientifiques différents.",
+                    "A contribué au développement de la radiologie mobile pendant la Première Guerre mondiale."
+                ]
             ],
             [
                 "nom" => "Hopper",

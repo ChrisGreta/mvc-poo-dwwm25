@@ -1,6 +1,7 @@
 <?php
     //inclus les modèles qui seront utilisés par mon controller
     require_once "models/woman.model.php";
+    require_once "models/json.model.php";
 
     // fonction appelé par défaut pour le controlleur HOME
     function index(){
@@ -8,8 +9,10 @@
             $title = "Page d'accueil";
 
             ob_start();
-    
-            $femmesCelebres = getWomen();
+            $json = new Json('include/json/women.json');
+            $data_women =$json->getJsonContent(false);
+            $femmesCelebres = $data_women->femmes_celebres;
+
             require "views/home.view.php";
     
             //déchargement de la vue Home et affichage dans la vue principale 
