@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    <h1 class="text-center"><?= $title  ?></h1>
+    <h1 class="text-center"><?= $title ?></h1>
+    <p class="text-center"><?= $intro ?></p>
+    
 
     <main class="container">
         <div class="d-flex">

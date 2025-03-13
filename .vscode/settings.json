@@ -1,0 +1,10 @@
+{
+  "indentRainbow.colors": [
+  "rgba(128, 128, 128, 0.03)", // gris très clair
+  "rgba(128, 128, 128, 0.05)",
+  "rgba(128, 128, 128, 0.07)",
+  "rgba(128, 128, 128, 0.09)"
+],
+"indentRainbow.errorColor": "rgba(255, 100, 100, 0.1)" // reste visible mais pas agressif
+
+}
