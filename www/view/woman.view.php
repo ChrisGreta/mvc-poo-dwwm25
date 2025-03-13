@@ -10,7 +10,6 @@
             <p><strong>Description : </strong><?=$women->description?></p>
             <?php if($women->date_deces !== NULL):?>
             <p><strong>Mort à : </strong>
-            <?= $women->date_deces?>
             <?= $women->getAgeDeces()?>
             <?php else :?>
                 <p>toujours en vie</p>

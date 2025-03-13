@@ -1,9 +1,11 @@
 <?php
 require_once 'models/woman.model.php';
+
 function index(){
+    
     try{
         $title = 'Accueil';
-        $femmesCelebres = getWomen();
+        $femmesCelebres = Woman::getWomen();
         
         ob_start();
         require './view/home.view.php';
