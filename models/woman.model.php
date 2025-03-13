@@ -1,5 +1,26 @@
 <?php
+    class Woman{
+        public $nom;
+        public $prenom;
+        public $date_naissance;
+        public $description;
+        public $image;
+        public $domaine;
 
+        public function __construct($nom, $prenom, $date_naissance, $description, $image, $domaine = "informatique")
+        {
+             $this->nom             = $nom;
+             $this->prenom          = $prenom;
+             $this->date_naissance  = $date_naissance;
+             $this->description     = $description;
+             $this->image           = $image;
+             $this->domaine         = $domaine;
+        }
+
+        public function getNomPrenom(){
+            return "Nom Prénom:".$this->nom." ".$this->prenom;
+        }
+    }
 
     function getWomen(){
         $womenCelebs = [
