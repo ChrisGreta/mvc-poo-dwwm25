@@ -1,21 +1,14 @@
 <?php
-require_once 'models/woman.model.php';
+require_once 'models/json.model.php';
 
-function readWoman() {
-    $femmesCelebres = Woman::getAll();
-    $id = $_GET['id'] ?? null;
-
-    // Trouver la femme correspondante
-    $femme = null;
-    foreach ($femmesCelebres as $f) {
-        if (strtolower(str_replace(' ', '-', $f->getNomPrenom())) === $id) {
-            $femme = $f;
-            break;
-        }
-    }
+// Fonction pour afficher les femmes célèbres
+function index() {
+    // Charger les données du fichier JSON
+    $json = new Json('_include/json/women.json');
+    $femmesCelebres = $json->getJsonContent(); // Récupérer les données des femmes célèbres depuis le JSON
 
     // Passer les données à la vue
-    $view = "views/woman.view.php";
-    include "views/base.view.php";
+    include 'views/index.view.php';
 }
 ?>
+

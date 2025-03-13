@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Femmes Célèbres</title>
+    <title><?= isset($title) ? $title : 'Femmes Célèbres' ?></title>
     <link rel="stylesheet" href="include/css/style.css">
 </head>
 <body>
     <header>
-        <h1>Femmes Célèbres dans l'Histoire</h1>
+        <h1><?= isset($title) ? $title : 'Femmes Célèbres' ?></h1>
     </header>
     <main>
-        <?php include $view; ?>
+        <?= $content_view; ?>
     </main>
     <footer>
         <p>&copy; 2023 Femmes Célèbres</p>

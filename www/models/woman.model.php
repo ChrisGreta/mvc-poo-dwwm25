@@ -1,120 +1,97 @@
 <?php
-class Woman {
-    private $nom;
-    private $prenom;
-    private $dateNaissance;
-    private $dateDeces;
-    private $description;
-    private $domaine;
-    private $faitsHistoriques;
-
-    public function __construct($nom, $prenom, $dateNaissance, $dateDeces, $description, $domaine, $faitsHistoriques) {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->dateNaissance = $dateNaissance;
-        $this->dateDeces = $dateDeces;
-        $this->description = $description;
-        $this->domaine = $domaine;
-        $this->faitsHistoriques = $faitsHistoriques;
-    }
-
-    public function getNomPrenom() {
-        return $this->prenom . " " . $this->nom;
-    }
-
-    public function getDescription() {
-        return $this->description;
-    }
-
-    public function getDateNaissance() {
-        return $this->dateNaissance;
-    }
-
-    public function getDateDeces() {
-        return $this->dateDeces;
-    }
-
-    public function getDomaine() {
-        return $this->domaine;
-    }
-
-    public function getFaitsHistoriques() {
-        return $this->faitsHistoriques;
-    }
-
-    /**
-     * Convertit une date en français (ex: "7 novembre 1867") en un objet DateTime.
-     *
-     * @param string $date La date en français.
-     * @return DateTime|null Retourne un objet DateTime ou null si la conversion échoue.
-     */
-    private function convertirDateFrancaisVersDateTime($date) {
-        $formatter = new IntlDateFormatter(
-            'fr_FR', // Locale française
-            IntlDateFormatter::FULL, // Format de date complet
-            IntlDateFormatter::NONE, // Pas de temps
-            null, // Timezone par défaut
-            null, // Calendar type (Grégorien par défaut)
-            'd MMMM yyyy' // Format de la date en français
-        );
-
-        // Convertir la chaîne en timestamp
-        $timestamp = $formatter->parse($date);
-        if ($timestamp === false) {
-            return null;
-        }
-
-        // Créer un objet DateTime à partir du timestamp
-        return DateTime::createFromFormat('U', $timestamp);
-    }
-
-    /**
-     * Calcule l'âge au moment du décès.
-     *
-     * @return int|null Retourne l'âge en années ou null si la conversion de date échoue.
-     */
-    public function calculerAgeMort() {
-        $naissance = $this->convertirDateFrancaisVersDateTime($this->dateNaissance);
-        $deces = $this->convertirDateFrancaisVersDateTime($this->dateDeces);
-
-        if ($naissance === null || $deces === null) {
-            return null; // Retourne null si la conversion de date échoue
-        }
-
-        $interval = $naissance->diff($deces);
-        return $interval->y; // Retourne l'âge en années
-    }
-
-    public static function getAll() {
-        return [
-            new Woman(
-                "Curie", 
-                "Marie", 
-                "7 novembre 1867", 
-                "4 juillet 1934", 
-                "Pionnière en physique et chimie.", 
-                "Physique et chimie", 
-                [
-                    "Première femme à recevoir un prix Nobel : Marie Curie a été la première femme à recevoir un prix Nobel en 1903, partagé avec son mari Pierre Curie et Henri Becquerel, pour leurs recherches sur les radiations.",
-                    "Double lauréate du prix Nobel : Elle est la seule personne à avoir reçu deux prix Nobel dans deux domaines scientifiques différents : en physique en 1903 et en chimie en 1911, pour la découverte du radium et du polonium.",
-                    "Contribution à la médecine pendant la Première Guerre mondiale : Marie Curie a joué un rôle crucial en développant des unités de radiologie mobiles pour aider à soigner les soldats blessés pendant la Première Guerre mondiale, ce qui a marqué le début de l'utilisation des rayons X en médecine de guerre."
-                ]
-            ),
-            new Woman(
-                "Angelou", 
-                "Maya", 
-                "4 avril 1928", 
-                "28 mai 2014", 
-                "Écrivaine, poétesse et militante américaine.", 
-                "Littérature", 
-                [
-                    "Autobiographie emblématique : Maya Angelou est surtout connue pour son autobiographie 'Je sais pourquoi chante l'oiseau en cage', qui raconte son enfance et son adolescence marquées par le racisme et les traumatismes.",
-                    "Militante des droits civiques : Elle a travaillé aux côtés de Martin Luther King Jr. et Malcolm X dans la lutte pour les droits civiques aux États-Unis.",
-                    "Poétesse renommée : Elle a écrit et récité des poèmes pour des événements historiques, comme l'investiture du président Bill Clinton en 1993."
-                ]
-            ),
-            // Ajoutez d'autres femmes célèbres ici...
-        ];
-    }
-}
-?>
+ require_once 'json.model.php';
+ 
+ class Woman{
+     public $nom;
+     public $prenom;
+ @@ -12,74 +14,82 @@
+     /**
+      * constructeur objet Women function
+      *
+      * @param [type] $nom
+      * @param [type] $prenom
+      * @param [type] $date_naissance
+      * @param [type] $description
+      * @param [type] $image
+      * @param [type] $faits_histroriques
+      * @param string $nom
+      * @param string $prenom
+      * @param string $date_naissance
+      * @param string $description
+      * @param string $image
+      * @param array $faits_histroriques
+      * @param string $date_deces
+      * @param string $domaine
+      */
+ 
+     public function __construct($nom, $prenom, $date_naissance, $description, $image, $faits_histroriques, $date_deces = 'vivant', $domaine="informatique"){
+         $this->nom = $nom;
+         $this->prenom = $prenom;
+         $this->date_naissance = $date_naissance;
+         $this->description = $description;
+         $this->image = $image;
+         $this->domaine = $domaine;
+         $this->date_deces = $date_deces;
+         $this->faits_histroriques = $faits_histroriques;
+     }
+ 
+     public function getAgeDeces(){
+         if($this->date_deces){
+             $dateNaisArray = explode(' ', $this->date_naissance);
+             $dateDecesArray = explode(' ', $this->date_deces);
+             $age = intVal($dateDecesArray[2]) - intVal($dateNaisArray[2]).' ans';
+             $dateNaisArray = explode('-', $this->date_naissance);
+             $dateDecesArray = explode('-', $this->date_deces);
+             $age = intVal($dateDecesArray[0]) - intVal($dateNaisArray[0]).' ans';
+         }else{
+             $age = 'vivant';
+         }
+         return $age;
+     }
+ 
+     public static function getWomenById($id){
+         $objJson = new Json('include/json/women.json');
+         $datafemme = $objJson->getJsonContent(false);
+         $femmesCelebres = $datafemme->femmes_celebres;
+         $woman = new Woman($femmesCelebres[$id]->nom, $femmesCelebres[$id]->prenom, $femmesCelebres[$id]->date_naissance, $femmesCelebres[$id]->description, $femmesCelebres[$id]->url_image, $femmesCelebres[$id]->faits_historiques_3,$femmesCelebres[$id]->date_deces,$femmesCelebres[$id]->domaine);
+         return $woman;
+     }
+ 
+     public static function getWomen(){
+         $femmesCelebres = [
+             [
+                 "nom" => "Curie",
+                 "prenom" => "Marie",
+                 "date_naissance" => "1867-11-07",
+                 "description" => "Marie Curie était une physicienne et chimiste polonaise naturalisée française. Elle est surtout connue pour ses travaux pionniers sur la radioactivité. Elle est la première femme à avoir reçu un prix Nobel, la première personne et la seule femme à l'avoir reçu deux fois, et la seule personne à l'avoir reçu dans deux domaines scientifiques différents (physique et chimie).",
+                 "image" => "https://upload.wikimedia.org/wikipedia/commons/a/a9/Marie_Curie_c1920.jpg",
+                 "domaine" => "Science"
+             ],
+             [
+                 "nom" => "Hopper",
+                 "prenom" => "Grace",
+                 "date_naissance" => "1906-12-09",
+                 "description" => "Grace Hopper était une informaticienne et militaire américaine. Elle est surtout connue pour avoir développé le premier compilateur pour un langage de programmation. Elle a également popularisé l'idée de domain-specific languages, ce qui a conduit au développement de COBOL, l'un des premiers langages de programmation de haut niveau.",
+                 "image" => "https://upload.wikimedia.org/wikipedia/commons/5/55/Grace_Hopper_and_UNIVAC.jpg",
+                 "domaine" => "Informatique"
+             ],
+             [
+                 "nom" => "Angelou",
+                 "prenom" => "Maya",
+                 "date_naissance" => "1928-04-04",
+                 "description" => "Maya Angelou était une poétesse, écrivaine et militante des droits civiques américaine. Elle est surtout connue pour son autobiographie 'Je sais pourquoi chante l\'oiseau en cage', qui explore les thèmes du racisme et de l'identité. Elle a reçu plus de 50 doctorats honorifiques et a été récompensée par la médaille présidentielle de la liberté.",
+                 "image" => "https://upload.wikimedia.org/wikipedia/commons/b/b4/Maya_Angelou_NMAJH_2010.jpg",
+                 "domaine" => "Littérature"
+             ],
+             [
+                 "nom" => "Williams",
+                 "prenom" => "Serena",
+                 "date_naissance" => "1981-09-26",
+                 "description" => "Serena Williams est une joueuse de tennis américaine. Elle est considérée comme l'une des plus grandes joueuses de tous les temps, ayant remporté 23 titres du Grand Chelem en simple. Elle a également été classée numéro un mondiale à plusieurs reprises et a remporté quatre médailles d'or olympiques.",
+                 "image" => "https://upload.wikimedia.org/wikipedia/commons/b/b3/Serena_Williams_2019_%28cropped%29.jpg",
+                 "domaine" => "Sports"
+             ]
+         ];
+         return $femmesCelebres;
+     }
+ }
