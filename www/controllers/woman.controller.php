@@ -1,27 +1,36 @@
 <?php
-// Inclus les modèles qui seront utilisés par mon contrôleur
-require_once "models/woman.model.php";
 
-// Fonction appelée par défaut pour le contrôleur Woman
-function readWoman()
-{
-    try {
-        $title = "Femme célèbre";
+    //inclus les modèles qui seront utilisés par mon controller
+    require_once "models/woman.model.php";
 
-        $description = "Marie Curie, née Maria Skłodowska, était une physicienne et chimiste d'origine polonaise, naturalisée française. Elle est surtout connue pour ses travaux pionniers sur la radioactivité. Elle a été la première femme à recevoir un prix Nobel, la première personne à en recevoir deux, et la seule à en recevoir dans deux domaines scientifiques différents : la physique et la chimie. Elle a découvert le polonium et le radium, et ses recherches ont jeté les bases de la radiothérapie pour le traitement du cancer.";
-        $image = "https://img.freepik.com/photos-premium/marie-curie-remporte-prix-nobel-chimie-1911-pour-sa-decouverte-du-polonium_1144359-126.jpg?w=740";
-        $woman = new Woman("Curie", "Marie", "7 novembre 1867", $description, $image, "Physique et Chimie");
+    // fonction appelé par défaut pour le controlleur Woman
+    function readWoman(){
+        try {
+            $title = "Femme célèbre";
+            $intro = "";
+            $description = "Marie Curie était une physicienne et chimiste polonaise naturalisée française. Elle est surtout connue pour ses travaux pionniers sur la radioactivité. Elle est la première femme à avoir reçu un prix Nobel, la première personne et la seule femme à l'avoir reçu deux fois, et la seule personne à l'avoir reçu dans deux domaines scientifiques différents (physique et chimie).";
+            $image = "https://www.monuments-nationaux.fr/var/cmn_inter/storage/images/_aliases/image_text_webp/3/2/8/6/120766823-1-fre-FR/cb6ef8c49c53-portrait-maria-sklodowska-curie-1903-c-cmn.webp.webp";
+            $date_naissance = "1867-11-07";
+            $date_deces = "1934-07-04";
+            $domaine = "Physique / Chimie";
 
-        // On passe l'objet $woman à la vue
-        ob_start();
-        require "views/woman.view.php"; // La vue va avoir accès à la variable $woman
+        // Tableau de faits marquants
+        $faits = [
+            "Première femme à recevoir un prix Nobel : Marie Curie a été la première femme à recevoir un prix Nobel en 1903, partagé avec son mari Pierre Curie et Henri Becquerel, pour leurs recherches sur les radiations.",
+            "Double lauréate du prix Nobel : Elle est la seule personne à avoir reçu deux prix Nobel dans deux domaines scientifiques différents : en physique en 1903 et en chimie en 1911, pour la découverte du radium et du polonium.",
+            "Contribution à la médecine pendant la Première Guerre mondiale : Marie Curie a joué un rôle crucial en développant des unités de radiologie mobiles pour aider à soigner les soldats blessés pendant la Première Guerre mondiale, ce qui a marqué le début de l'utilisation des rayons X en médecine de guerre."
+        ];
 
-        // Déchargement de la vue Home et affichage dans la vue principale
-        $content_view = ob_get_clean();
-        require "views/base.view.php";
-    } catch (\Throwable $th) {
-        // Gestion des erreurs
-        echo "Erreur lors de l'affichage de ma page d'accueil";
-        exit();
+
+        $woman = new Woman("Curie", "Marie", $description, $image, $date_naissance, $date_deces, $domaine, $faits);
+            ob_start();
+            require 'views/woman.view.php';
+
+            $content_view = ob_get_clean();
+
+            require 'views/base.view.php';
+
+        } catch (Exception $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
     }
-}
