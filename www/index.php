@@ -11,7 +11,7 @@ switch ($route) {
     case 'read':
         require_once('controllers/woman.controller.php');
         readWoman();
-        break;
+        break;        
     default:
         echo "Page non trouvé";
         break;
