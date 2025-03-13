@@ -8,17 +8,17 @@
             $title = "Femme célèbre";
 
             $description = "Marie Curie, née Maria Skłodowska, était une physicienne et chimiste d'origine polonaise, naturalisée française. Elle est surtout connue pour ses travaux pionniers sur la radioactivité. Elle a été la première femme à recevoir un prix Nobel, la première personne à en recevoir deux, et la seule à en recevoir dans deux domaines scientifiques différents : la physique et la chimie. Elle a découvert le polonium et le radium, et ses recherches ont jeté les bases de la radiothérapie pour le traitement du cancer.";
-
-            $marie = new Woman("Curie", "Marie", "7 novembre 1867", $description, "Physique et chimie");
-            $nomprenom = $marie->getNomPrenom();
+            $image = "https://th.bing.com/th/id/R.c10410ae338c69a7aa514fbd5b7ebde1?rik=WqCtiGe4M34ZMg&pid=ImgRaw&r=0";
+            
             /*
             Nom : Curie
             Prénom : Marie
             Date de naissance : 7 novembre 1867
             Description : Marie Curie, née Maria Skłodowska, était une physicienne et chimiste d'origine polonaise, naturalisée française. Elle est surtout connue pour ses travaux pionniers sur la radioactivité. Elle a été la première femme à recevoir un prix Nobel, la première personne à en recevoir deux, et la seule à en recevoir dans deux domaines scientifiques différents : la physique et la chimie. Elle a découvert le polonium et le radium, et ses recherches ont jeté les bases de la radiothérapie pour le traitement du cancer.
             Domaine : Physique et chimie
-            */
-
+            */         
+            $woman = new Woman("Curie", "Marie", "7 novembre 1867", $description, $image ,"Physique et chimie");
+            
             ob_start();
             require "views/woman.view.php";
     
