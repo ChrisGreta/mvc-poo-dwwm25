@@ -6,8 +6,19 @@
             <div class="col-md-8">
                 <h1><?= $woman->nom;?> <?= $woman->prenom;?></h1>
                 <p><strong>Date de naissance :</strong><?= $woman->date_naissance;?></p>
+                <p><strong>Age : </strong><?= $woman->getAge();?></p>
                 <p><strong>Domaine :</strong> <?= $woman->domaine;?></p>
                 <p><?= $woman->description;?></p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3>Faits marquants :</h3>
+                    <ul class="list-group">
+                        <?php foreach ($woman->faits_historiques_3 as $fait) : ?>
+                            <li class="list-group-item"><?= ($fait) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
