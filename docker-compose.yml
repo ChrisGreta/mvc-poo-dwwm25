@@ -1,0 +1,22 @@
+services:
+  # Service PHP avec Apache
+  php:
+    build: .
+    container_name: php-apache_mvc_poo
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+  # Service MySQL
+  # mysql:
+  #   image: mysql:latest
+  #   container_name: mysql_projet_mvc
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: rootpassword  # Mot de passe root
+  #     MYSQL_DATABASE: projet_mvc         # Nom de la base de données
+  #     MYSQL_USER: user                   # Utilisateur personnalisé
+  #     MYSQL_PASSWORD: userpassword       # Mot de passe de l'utilisateur
+  #   ports:
+  #     - "3306:3306"  # Accès MySQL via localhost:3306
+  #   volumes:
+  #     - ./db:/var/lib/mysql  # Persistance des données
