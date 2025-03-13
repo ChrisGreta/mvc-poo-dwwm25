@@ -1,0 +1,89 @@
+{
+    "femmes_celebres": [
+      {
+        "nom": "Curie",
+        "prenom": "Marie",
+        "date_naissance": "1867-11-07",
+        "date_deces": "1934-07-04",
+        "description": "Physicienne et chimiste, pionnière dans l'étude de la radioactivité.",
+        "faits_historiques_3": [
+          "Première femme à recevoir un prix Nobel.",
+          "Découverte du radium et du polonium.",
+          "Première personne à recevoir deux prix Nobel dans des domaines différents."
+        ],
+        "url_image": "https://wallpaperaccess.com/full/1818914.jpg",
+        "domaine": "Science"
+      },
+      {
+        "nom": "Franklin",
+        "prenom": "Rosalind",
+        "date_naissance": "1920-07-25",
+        "date_deces": "1958-04-16",
+        "description": "Chimiste et cristallographe ayant contribué à la découverte de la structure de l'ADN.",
+        "faits_historiques_3": [
+          "A fourni les images aux rayons X qui ont permis de découvrir la double hélice de l'ADN.",
+          "A également étudié la structure du virus de la mosaïque du tabac.",
+          "Son travail n'a été pleinement reconnu qu'après sa mort."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/9/97/Rosalind_Franklin.jpg",
+        "domaine": "Science"
+      },
+      {
+        "nom": "Lovelace",
+        "prenom": "Ada",
+        "date_naissance": "1815-12-10",
+        "date_deces": "1852-11-27",
+        "description": "Mathématicienne britannique considérée comme la première programmeuse de l'histoire.",
+        "faits_historiques_3": [
+          "A écrit le premier algorithme destiné à une machine.",
+          "A collaboré avec Charles Babbage sur la machine analytique.",
+          "A prédit l'importance des ordinateurs bien avant leur invention."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Ada_Byron_daguerreotype_by_Antoine_Claudet_1843_or_1850_-_cropped.png",
+        "domaine": "Informatique"
+      },
+      {
+        "nom": "Williams",
+        "prenom": "Serena",
+        "date_naissance": "1981-09-26",
+        "date_deces": null,
+        "description": "Joueuse de tennis américaine, l'une des meilleures de l'histoire du sport.",
+        "faits_historiques_3": [
+          "Détentrice de 23 titres du Grand Chelem en simple.",
+          "A remporté quatre médailles d'or olympiques.",
+          "Modèle de persévérance et de puissance sur le court."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Williams_S._RG18_%2817%29_%2841168711240%29.jpg/398px-Williams_S._RG18_%2817%29_%2841168711240%29.jpg",
+        "domaine": "Sport"
+      },
+      {
+        "nom": "Hepburn",
+        "prenom": "Audrey",
+        "date_naissance": "1929-05-04",
+        "date_deces": "1993-01-20",
+        "description": "Actrice et icône de mode, célèbre pour ses rôles dans des films classiques.",
+        "faits_historiques_3": [
+          "Oscar de la meilleure actrice pour 'Vacances romaines'.",
+          "Engagée dans l'humanitaire avec l'UNICEF.",
+          "Considérée comme une des plus grandes icônes du cinéma."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/AudreyKHepburn.jpg/800px-AudreyKHepburn.jpg",
+        "domaine": "Cinéma"
+      },
+      {
+        "nom": "Meitner",
+        "prenom": "Lise",
+        "date_naissance": "1878-11-07",
+        "date_deces": "1968-10-27",
+        "description": "Physicienne autrichienne ayant contribué à la découverte de la fission nucléaire.",
+        "faits_historiques_3": [
+          "A joué un rôle clé dans la découverte de la fission nucléaire.",
+          "A été exclue du prix Nobel attribué à Otto Hahn.",
+          "L'élément chimique Meitnérium a été nommé en son honneur."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Lise_Meitner_%281878-1968%29%2C_lecturing_at_Catholic_University%2C_Washington%2C_D.C.%2C_1946.jpg/220px-Lise_Meitner_%281878-1968%29%2C_lecturing_at_Catholic_University%2C_Washington%2C_D.C.%2C_1946.jpg",
+        "domaine": "Science"
+      }
+    ]
+  }
+  

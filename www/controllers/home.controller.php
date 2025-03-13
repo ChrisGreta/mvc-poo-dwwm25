@@ -1,11 +1,15 @@
 <?php
 require_once 'models/woman.model.php';
+require_once 'models/json.model.php';
+
 
 function index(){
     
     try{
+        $objJson = new Json('include/json/women.json');
         $title = 'Accueil';
-        $femmesCelebres = Woman::getWomen();
+        $datafemme = $objJson->getJsonContent(false);
+        $femmesCelebres = $datafemme->femmes_celebres;
         
         ob_start();
         require './view/home.view.php';

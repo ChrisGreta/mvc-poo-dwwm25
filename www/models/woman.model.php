@@ -1,4 +1,6 @@
 <?php
+require_once 'json.model.php';
+
 class Woman{
     public $nom;
     public $prenom;
@@ -12,12 +14,12 @@ class Woman{
     /**
      * constructeur objet Women function
      *
-     * @param [type] $nom
-     * @param [type] $prenom
-     * @param [type] $date_naissance
-     * @param [type] $description
-     * @param [type] $image
-     * @param [type] $faits_histroriques
+     * @param string $nom
+     * @param string $prenom
+     * @param string $date_naissance
+     * @param string $description
+     * @param string $image
+     * @param array $faits_histroriques
      * @param string $date_deces
      * @param string $domaine
      */
@@ -35,13 +37,21 @@ class Woman{
 
     public function getAgeDeces(){
         if($this->date_deces){
-            $dateNaisArray = explode(' ', $this->date_naissance);
-            $dateDecesArray = explode(' ', $this->date_deces);
-            $age = intVal($dateDecesArray[2]) - intVal($dateNaisArray[2]).' ans';
+            $dateNaisArray = explode('-', $this->date_naissance);
+            $dateDecesArray = explode('-', $this->date_deces);
+            $age = intVal($dateDecesArray[0]) - intVal($dateNaisArray[0]).' ans';
         }else{
             $age = 'vivant';
         }
         return $age;
+    }
+
+    public static function getWomenById($id){
+        $objJson = new Json('include/json/women.json');
+        $datafemme = $objJson->getJsonContent(false);
+        $femmesCelebres = $datafemme->femmes_celebres;
+        $woman = new Woman($femmesCelebres[$id]->nom, $femmesCelebres[$id]->prenom, $femmesCelebres[$id]->date_naissance, $femmesCelebres[$id]->description, $femmesCelebres[$id]->url_image, $femmesCelebres[$id]->faits_historiques_3,$femmesCelebres[$id]->date_deces,$femmesCelebres[$id]->domaine);
+        return $woman;
     }
 
     public static function getWomen(){
