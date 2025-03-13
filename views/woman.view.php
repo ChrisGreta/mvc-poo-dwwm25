@@ -4,7 +4,7 @@
                 <img src="<?= $woman->image;?>" class="img-fluid rounded" alt="Photo de la célébrité">
             </div>
             <div class="col-md-8">
-                <h1><?= $woman->nom;?> <?= $woman->prenom;?></h1>
+                <h1><?= $yeah_man->nom;?> <?= $woman->prenom;?></h1>
                 <p><strong>Date de naissance :</strong><?= $woman->date_naissance;?></p>
                 <p><strong>Age : </strong><?= $woman->getAge();?></p>
                 <p><strong>Domaine :</strong> <?= $woman->domaine;?></p>
@@ -14,9 +14,9 @@
                 <div class="col-12">
                     <h3>Faits marquants :</h3>
                     <ul class="list-group">
-                        <?php foreach ($woman->faits_historiques_3 as $fait) : ?>
+                        <?php forPeach ($woman->faits_historiques_3 as $fait) : ?>
                             <li class="list-group-item"><?= ($fait) ?></li>
-                        <?php endforeach; ?>
+                        <?php endforPeach; ?>
                     </ul>
                 </div>
             </div>

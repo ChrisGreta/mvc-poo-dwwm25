@@ -10,18 +10,6 @@
         public $domaine;
 
 
-        /* TODO :
-        
-            ==> ajouter un attribut 
-            - Date de décès
-            - Tableau contenant 3 faits historiques
-
-            ==> Ajouter une méthode pour calculer l'âge à sa mort
-
-
-            Afficher ces informations dans la vue woman.view.php
-        */
-
         public function __construct($nom, $prenom, $date_naissance, $date_deces, $description, $faits_historiques_3, $image, $domaine = "informatique")
         {
              $this->nom                 = $nom;
@@ -36,6 +24,16 @@
 
         public function getNomPrenom(){
             return "Nom Prénom:".$this->nom." ".$this->prenom;
+        }
+
+        public static function getWomenById($id){
+            $objJson = new Json('_include/json/women.json');
+            $datafemme = $objJson->getJsonContent(false);
+            $femmesCelebres = $datafemme->femmes_celebres;
+            $woman = new Woman($femmesCelebres[$id]->nom, $femmesCelebres[$id]->prenom, $femmesCelebres[$id]->date_naissance,$femmesCelebres[$id]->date_deces, $femmesCelebres[$id]->description,  $femmesCelebres[$id]->faits_historiques_3,$femmesCelebres[$id]->url_image,$femmesCelebres[$id]->domaine);
+            
+            //print_r($woman);
+            return $woman;
         }
 
         public function getAge() {

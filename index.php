@@ -5,10 +5,10 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
 
 switch ($route) {
     case 'home':
-        require_once('controllers/home.controller.php');
+        require_once('controllers/home.controler.php');
         index();
         break;
-    case 'read':
+    case 'ride':
         require_once('controllers/woman.controller.php');
         readWoman();
         break;        

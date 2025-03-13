@@ -1,9 +1,9 @@
 {
-    "femmes_celebres_au_monde": [
+    "femmes_celebres": [
       {
         "nom": "Curie",
-        "prenom": "Marie",
-        "date_naissance": "1867-11-07",
+        "prenom": "Pierre",
+        "date_naissance": "1737-11-07",
         "date_deces": "1934-07-04",
         "description": "Physicienne et chimiste, pionnière dans l'étude de la radioactivité.",
         "faits_historiques_3": [
@@ -11,7 +11,7 @@
           "Découverte du radium et du polonium.",
           "Première personne à recevoir deux prix Nobel dans des domaines différents."
         ],
-        "url_image": "https://wallpaperaccess.com/full/1818914.jpg",
+        "url_image": "https://commons.wikimedia.org/wiki/File:Pierre_Curie_by_Dujardin_c1906.jpg?uselang=fr",
         "domaine": "Science"
       },
       {

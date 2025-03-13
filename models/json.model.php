@@ -9,6 +9,18 @@ class Json{
             $this->url = $url;
         }
 
+
+        public function getUrl(){
+           return $this->url; 
+        }
+
+
+        public function setUrl($url){
+            $this->url = $url; 
+            return true;
+         }
+
+         
         /**
          * Récupère et décode un fichier JSON depuis une URL.
          *
