@@ -10,7 +10,10 @@ switch ($route) {
         require_once('controllers/home.controller.php');
         index();
         break;
-    
+    case 'read';
+        require_once('controllers/women.controller.php');
+        readWomen();
+        break;
     default:
         # code...
         echo "404 - Page not found";
