@@ -1,4 +1,49 @@
 <?php
+class Woman{
+    public $nom;
+    public $prenom;
+    public $date_naissance;
+    public $description;
+    public $image;
+    public $domaine;
+    public $date_deces;
+    public $faits_histroriques;
+
+    /**
+     * constructeur objet Women function
+     *
+     * @param [type] $nom
+     * @param [type] $prenom
+     * @param [type] $date_naissance
+     * @param [type] $description
+     * @param [type] $image
+     * @param [type] $faits_histroriques
+     * @param string $date_deces
+     * @param string $domaine
+     */
+
+    public function __construct($nom, $prenom, $date_naissance, $description, $image, $faits_histroriques, $date_deces = 'vivant', $domaine="informatique"){
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->date_naissance = $date_naissance;
+        $this->description = $description;
+        $this->image = $image;
+        $this->domaine = $domaine;
+        $this->date_deces = $date_deces;
+        $this->faits_histroriques = $faits_histroriques;
+    }
+
+    public function getAgeDeces(){
+        if($this->date_deces){
+            $dateNaisArray = explode(' ', $this->date_naissance);
+            $dateDecesArray = explode(' ', $this->date_deces);
+            $age = intVal($dateDecesArray[2]) - intVal($dateNaisArray[2]).' ans';
+        }else{
+            $age = 'vivant';
+        }
+        return $age;
+    }
+}
 function getWomen(){
     $femmesCelebres = [
         [

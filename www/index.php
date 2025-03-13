@@ -7,6 +7,10 @@ switch ($route) {
         require './controllers/home.controller.php';
         index();
         break;
+    case 'read':
+        require './controllers/women.controller.php';
+        readWomen();
+        break;
     default:
         echo 'page non trouvée';
         break;
