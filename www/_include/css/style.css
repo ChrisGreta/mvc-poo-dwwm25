@@ -1,0 +1,32 @@
+/* Conteneur principal */
+.container {
+    margin-top: 30px;
+}
+
+/* Image de la célébrité */
+.img-fluid {
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de la célébrité */
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Paragraphe de description */
+p {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Styles pour les libellés */
+p strong {
+    font-weight: bold;
+    color: #000;
+}

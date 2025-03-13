@@ -8,7 +8,12 @@ switch ($route) {
         require_once('controllers/home.controller.php');
         index();
         break;
+    case 'read':
+        require_once('controllers/woman.controller.php');
+        readWoman();
+        break;
     default:
-        echo "Page non trouvé";
+        echo "Page non trouvée";
         break;
 }
+?>

@@ -5,7 +5,6 @@
     // Exemple d'utilisation
     foreach ($femmesCelebres as $femme) {
         ?>
-
         <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -17,7 +16,7 @@
             <li class="list-group-item"><?= $femme['domaine']?></li>
         </ul>
         <div class="card-body">
-            <a href="#" class="card-link">En savoir plus...</a>
+            <a href="http://localhost/index.php?route=read " class="card-link">En savoir plus...</a>
         </div>
         </div>
 
