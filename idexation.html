@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explication des modifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Explication des modifications pour afficher les détails d'une femme célèbre</h1>
+
+    <!-- Section 1 : Ajout de la méthode getWomanById() -->
+    <div class="section">
+        <h2>1. Ajout de la méthode <code>getWomanById()</code> dans la classe <code>Json</code></h2>
+        <p><strong>Pourquoi cette modification ?</strong></p>
+        <p>Le fichier JSON contient une liste de femmes célèbres. Pour afficher les détails d'une femme spécifique, nous
+            devons pouvoir récupérer ses informations par son index (ou ID) dans le tableau JSON.</p>
+        <p>La méthode <code>getWomanById()</code> permet de récupérer une femme spécifique en fonction de son index.</p>
+
+        <p><strong>Comment ça marche ?</strong></p>
+        <ul>
+            <li>La méthode prend un paramètre <code>$index</code> qui correspond à l'index de la femme dans le tableau
+                JSON.</li>
+            <li>Elle utilise la méthode <code>getJsonContent()</code> pour récupérer et décoder le fichier JSON.</li>
+            <li>Elle vérifie si l'index existe dans le tableau <code>femmes_celebres</code>.</li>
+            <li>Si l'index existe, elle retourne les informations de la femme correspondante. Sinon, elle retourne
+                <code>null</code>.</li>
+        </ul>
+
+        <p><strong>Code :</strong></p>
+        <code>
+            public function getWomanById($index) {<br>
+                &nbsp;&nbsp;$jsonContent = $this->getJsonContent(true); // Récupère le contenu JSON sous forme de tableau associatif<br>
+                &nbsp;&nbsp;if ($jsonContent === false || !isset($jsonContent['femmes_celebres'][$index])) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return null; // Retourne null si l'index n'existe pas<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;return $jsonContent['femmes_celebres'][$index]; // Retourne les informations de la femme<br>
+            }
+        </code>
+    </div>
+
+    <!-- Section 2 : Modification du contrôleur pour gérer la route read -->
+    <div class="section">
+        <h2>2. Modification du contrôleur pour gérer la route <code>read</code></h2>
+        <p><strong>Pourquoi cette modification ?</strong></p>
+        <p>Lorsqu'un utilisateur clique sur "En savoir plus" pour une femme spécifique, nous devons récupérer son index
+            et afficher ses détails.</p>
+        <p>La route <code>read</code> doit être capable de gérer un paramètre <code>id</code> (l'index de la femme) et
+            d'appeler la fonction <code>readWoman()</code> avec cet index.</p>
+
+        <p><strong>Comment ça marche ?</strong></p>
+        <ul>
+            <li>Dans <code>index.php</code>, nous vérifions si le paramètre <code>id</code> est présent dans l'URL
+                (<code>$_GET['id']</code>).</li>
+            <li>Si <code>id</code> est présent, nous appelons la fonction <code>readWoman()</code> avec cet index.</li>
+            <li>Sinon, nous affichons un message d'erreur.</li>
+        </ul>
+
+        <p><strong>Code :</strong></p>
+        <code>
+            case 'read':<br>
+                &nbsp;&nbsp;require_once('controllers/woman.controller.php');<br>
+                &nbsp;&nbsp;if (isset($_GET['id'])) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;readWoman($_GET['id']); // Appelle readWoman() avec l'index de la femme<br>
+                &nbsp;&nbsp;} else {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;echo "ID non spécifié.";<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;break;
+        </code>
+    </div>
+
+    <!-- Section 3 : Modification de la fonction readWoman() -->
+    <div class="section">
+        <h2>3. Modification de la fonction <code>readWoman()</code> dans <code>woman.controller.php</code></h2>
+        <p><strong>Pourquoi cette modification ?</strong></p>
+        <p>La fonction <code>readWoman()</code> doit récupérer les informations de la femme correspondant à l'index
+            passé en paramètre.</p>
+        <p>Elle doit ensuite afficher ces informations dans la vue <code>woman.view.php</code>.</p>
+
+        <p><strong>Comment ça marche ?</strong></p>
+        <ul>
+            <li>La fonction prend un paramètre <code>$index</code>.</li>
+            <li>Elle utilise la classe <code>Json</code> pour appeler <code>getWomanById($index)</code> et récupérer les
+                informations de la femme.</li>
+            <li>Si les informations sont trouvées, elle charge la vue <code>woman.view.php</code> avec ces données.</li>
+            <li>Sinon, elle affiche un message d'erreur.</li>
+        </ul>
+
+        <p><strong>Code :</strong></p>
+        <code>
+            function readWoman($index) {<br>
+                &nbsp;&nbsp;try {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$title = "Détails de la femme célèbre";<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$json = new Json();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$woman = $json->getWomanById($index);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if ($woman) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ob_start(); // Démarre la temporisation de sortie<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require "views/woman.view.php"; // Charge la vue avec les données de la femme<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$content_view = ob_get_clean(); // Récupère le contenu généré<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require "views/base.view.php"; // Charge le template de base<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Aucune femme trouvée avec cet index.";<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;} catch (\Throwable $th) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;echo "Erreur lors de l'affichage de la page de la femme célèbre : " . $th->getMessage();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;exit();<br>
+                &nbsp;&nbsp;}<br>
+            }
+        </code>
+    </div>
+
+    <!-- Section 4 : Modification de woman.view.php -->
+    <div class="section">
+        <h2>4. Modification de <code>woman.view.php</code></h2>
+        <p><strong>Pourquoi cette modification ?</strong></p>
+        <p>La vue <code>woman.view.php</code> doit afficher les détails de la femme récupérés depuis le fichier JSON.
+        </p>
+        <p>Elle utilise les données de l'objet <code>$woman</code> pour remplir les champs dynamiquement.</p>
+
+        <p><strong>Comment ça marche ?</strong></p>
+        <ul>
+            <li>Les données de la femme sont passées à la vue via la variable <code>$woman</code>.</li>
+            <li>La vue utilise cette variable pour afficher les informations (nom, prénom, description, image, etc.).
+            </li>
+            <li>Les faits historiques sont affichés dans une liste à puces (<code>&lt;ul&gt;</code>).</li>
+        </ul>
+
+        <p><strong>Code :</strong></p>
+        <code>
+            &lt;div class="container mt-5"&gt;<br>
+                &nbsp;&nbsp;&lt;div class="row"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="&lt;?= $woman['url_image']; ?&gt;" class="img-fluid rounded" alt="Photo de &lt;?= $woman['prenom'] . ' ' . $woman['nom']; ?&gt;"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-8"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;&lt;?= $woman['prenom']; ?&gt; &lt;?= $woman['nom']; ?&gt;&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;Date de naissance :&lt;/strong&gt; &lt;?= $woman['date_naissance']; ?&gt;&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php if ($woman['date_deces']) : ?&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;Date de décès :&lt;/strong&gt; &lt;?= $woman['date_deces']; ?&gt;&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php endif; ?&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;Domaine :&lt;/strong&gt; &lt;?= $woman['domaine']; ?&gt;&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;?= $woman['description']; ?&gt;&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Faits historiques :&lt;/h3&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach ($woman['faits_historiques_3'] as $fait) : ?&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;?= $fait; ?&gt;&lt;/li&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php endforeach; ?&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;/div&gt;<br>
+            &lt;/div&gt;
+        </code>
+    </div>
+
+    <!-- Section 5 : Modification du lien "En savoir plus" -->
+    <div class="section">
+        <h2>5. Modification du lien "En savoir plus"</h2>
+        <p><strong>Pourquoi cette modification ?</strong></p>
+        <p>Le lien "En savoir plus" doit rediriger l'utilisateur vers la page détaillée de la femme correspondante.</p>
+        <p>Pour cela, il doit inclure l'index de la femme dans l'URL.</p>
+
+        <p><strong>Comment ça marche ?</strong></p>
+        <ul>
+            <li>Dans la vue qui affiche la liste des femmes (par exemple, <code>home.view.php</code>), nous ajoutons un
+                lien avec l'index de la femme dans l'URL.</li>
+            <li>Lorsque l'utilisateur clique sur ce lien, il est redirigé vers <code>index.php?route=read&id=X</code>,
+                où <code>X</code> est l'index de la femme.</li>
+        </ul>
+
+        <p><strong>Code :</strong></p>
+        <code>
+            &lt;div class="card-body"&gt;<br>
+                &nbsp;&nbsp;&lt;a href="index.php?route=read&id=&lt;?= $index; ?&gt;" class="card-link"&gt;En savoir plus...&lt;/a&gt;<br>
+            &lt;/div&gt;
+        </code>
+    </div>
+
+    <!-- Section 6 : Fonctionnement global -->
+    <div class="section">
+        <h2>6. Fonctionnement global</h2>
+        <ol>
+            <li><strong>Étape 1 : L'utilisateur clique sur "En savoir plus"</strong><br>
+                Le lien redirige vers <code>index.php?route=read&id=X</code>, où <code>X</code> est l'index de la femme.
+            </li>
+            <li><strong>Étape 2 : Le routeur (<code>index.php</code>) traite la route <code>read</code></strong><br>
+                Il appelle la fonction <code>readWoman($index)</code> avec l'index de la femme.</li>
+            <li><strong>Étape 3 : La fonction <code>readWoman()</code> récupère les données de la femme</strong><br>
+                Elle utilise <code>getWomanById($index)</code> pour récupérer les informations depuis le fichier JSON.
+            </li>
+            <li><strong>Étape 4 : Les données sont passées à la vue <code>woman.view.php</code></strong><br>
+                La vue affiche les détails de la femme.</li>
+            <li><strong>Étape 5 : La vue est intégrée dans le template <code>base.view.php</code></strong><br>
+                Le contenu généré est inséré dans le template de base pour afficher la page complète.</li>
+        </ol>
+    </div>
+</body>
+
+</html>
