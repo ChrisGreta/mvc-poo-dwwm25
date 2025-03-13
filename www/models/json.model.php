@@ -1,13 +1,13 @@
 <?php
 
 class Json{
-        private $url; 
-        const DEFAULT_JSON = "_include/json/women.json";
+    private $url;
+    const DEFAULT_JSON = "include/json/women.json";
 
-        public function __construct($url)
-        {
-            $this->url = $url;
-        }
+    public function __construct($url = self::DEFAULT_JSON)
+    {
+        $this->url = $url;
+    }
 
         /**
          * Récupère et décode un fichier JSON depuis une URL.
@@ -50,5 +50,12 @@ class Json{
                 return false;
             }
             return json_decode($jsonContent, false);
+        }
+        public function getWomanById($index) {
+            $jsonContent = $this->getJsonContent(true); // Récupère le contenu JSON sous forme de tableau associatif
+            if ($jsonContent === false || !isset($jsonContent['femmes_celebres'][$index])) {
+              return null; // Retourne null si l'index n'existe pas
+            }
+            return $jsonContent['femmes_celebres'][$index]; // Retourne les informations de la femme
         }
 }

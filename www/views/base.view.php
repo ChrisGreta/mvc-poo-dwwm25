@@ -14,6 +14,7 @@
         <?= $content_view ?>
     </main>
     <div class="text-center">
+        
             © 2025 DWWM. All rights reserved.
     </div>    
 </body>
