@@ -1,12 +1,10 @@
 <h2>Bienvenue ! 😁</h2>
 
 <?php
-
-    // Exemple d'utilisation
-    foreach ($femmesCelebres as $femme) {
-        ?>
-
-        <div class="card" style="width: 18rem;">
+// Exemple d'utilisation
+foreach ($femmesCelebres as $femme) {
+?>
+    <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title"><?= $femme['prenom']?> <?= $femme['nom']?></h5>
@@ -19,10 +17,8 @@
         <div class="card-body">
             <a href="#" class="card-link">En savoir plus...</a>
         </div>
-        </div>
-
-
-        <?php
-    }
+    </div>
+<?php
+}
 
 ?>
