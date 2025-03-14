@@ -7,10 +7,18 @@ switch ($route) {
         require_once('controllers/home.controller.php');
         index();
         break;
-    case 'read':
+    case 'woman':
         require_once('controllers/woman.controller.php');
         if (isset($_GET['id'])) {
-            readWoman($_GET['id']); // Passez l'index de la femme à la fonction
+            readWoman($_GET['id']);
+        } else {
+            echo "ID non spécifié.";
+        }
+        break;
+    case 'man':
+        require_once('controllers/man.controller.php');
+        if (isset($_GET['id'])) {
+            readMan($_GET['id']);
         } else {
             echo "ID non spécifié.";
         }

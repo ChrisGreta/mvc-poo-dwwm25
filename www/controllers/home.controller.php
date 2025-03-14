@@ -1,38 +1,39 @@
 <?php
-//inclus les modèles qui seront utilisés par mon controller
-require_once "models/woman.model.php";
+// Inclus les modèles qui seront utilisés par mon contrôleur
 require_once "models/json.model.php";
 
-// fonction appelé par défaut pour le controlleur HOME
+// Fonction appelée par défaut pour le contrôleur HOME
 function index()
 {
     try {
-        $title = "Les femmes Célèbres";
+        // Détermine le type de personnes à afficher (femmes ou hommes)
+        $type = isset($_GET['type']) ? $_GET['type'] : 'women'; // Par défaut, affiche les femmes
+        $title = ($type === 'women') ? "Les femmes célèbres" : "Les hommes célèbres";
 
-        ob_start();
+        ob_start(); // Démarre la temporisation de sortie
 
         // Instanciation de notre fichier JSON
-        $json = new Json('_include/json/women.json');
+        $json = new Json($type); // Utilise le fichier JSON correspondant
 
-        // récupération des datas du fichier JSON
-        $data_women = $json->getJsonContent(false);
+        // Récupération des données du fichier JSON
+        $data = $json->getJsonContent(false); // false pour obtenir un objet au lieu d'un tableau associatif
 
-        // affecter data > femmesCelebres
-        $femmesCelebres = $data_women->femmes_celebres;
-
-        if ($data_women === false) {
-            echo "Erreur lors de la récupération ou du décodage du fichier JSON.";
-            exit;
+        if ($data === false) {
+            throw new Exception("Erreur lors de la récupération ou du décodage du fichier JSON.");
         }
 
+        // Affecter data > personnes_celebres
+        $personnesCelebres = ($type === 'women') ? $data->femmes_celebres : $data->hommes_celebres;
+
+        // Charge la vue home.view.php avec les données des personnes
         require "views/home.view.php";
 
-        //déchargement de la vue Home et affichage dans la vue principale 
+        // Déchargement de la vue et affichage dans la vue principale
         $content_view = ob_get_clean();
         require "views/base.view.php";
     } catch (\Throwable $th) {
-        //throw $th;
-        echo "erreur lors de l'affichage de ma page d'accueil";
+        // Gestion des erreurs
+        echo "Erreur lors de l'affichage de la page d'accueil : " . $th->getMessage();
         exit();
     }
 }
