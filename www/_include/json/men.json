@@ -1,0 +1,72 @@
+[
+    {
+        "nom": "Einstein",
+        "prenom": "Albert",
+        "date_naissance": "1879-03-14",
+        "date_deces": "1955-04-18",
+        "description": "Physicien théoricien célèbre pour la théorie de la relativité.",
+        "faits_historiques_3": [
+            "Prix Nobel de physique en 1921.",
+            "A développé la célèbre équation E=mc².",
+            "A influencé profondément la physique moderne."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
+        "domaine": "Sciences"
+    },
+    {
+        "nom": "Mandela",
+        "prenom": "Nelson",
+        "date_naissance": "1918-07-18",
+        "date_deces": "2013-12-05",
+        "description": "Homme politique et militant contre l'apartheid en Afrique du Sud.",
+        "faits_historiques_3": [
+            "Premier président noir d'Afrique du Sud.",
+            "Emprisonné pendant 27 ans pour ses idées.",
+            "Symbole mondial de paix et de réconciliation."
+        ],
+        "url_image": "https://les-yeux-du-monde.fr/wp-content/uploads/2013/12/Biographie-Mandela-537x806.jpeg",
+        "domaine": "Politique"
+    },
+    {
+        "nom": "Da Vinci",
+        "prenom": "Leonardo",
+        "date_naissance": "1452-04-15",
+        "date_deces": "1519-05-02",
+        "description": "Artiste et inventeur de la Renaissance, connu pour son génie universel.",
+        "faits_historiques_3": [
+            "Peintre de la Joconde et de La Cène.",
+            "Inventeur et ingénieur en avance sur son temps.",
+            "Symbole de la Renaissance italienne."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Leonardo_da_Vinci.jpeg/480px-Leonardo_da_Vinci.jpeg",
+        "domaine": "Arts et Sciences"
+    },
+    {
+        "nom": "Luther King",
+        "prenom": "Martin",
+        "date_naissance": "1929-01-15",
+        "date_deces": "1968-04-04",
+        "description": "Pasteur et militant pour les droits civiques aux États-Unis.",
+        "faits_historiques_3": [
+            "Célèbre pour son discours 'I Have a Dream'.",
+            "Prix Nobel de la paix en 1964.",
+            "Figure emblématique de la lutte non-violente."
+        ],
+        "url_image": "https://m.media-amazon.com/images/I/613ugr8+0bL._AC_SY300_SX300_.jpg",
+        "domaine": "Droits civiques"
+    },
+    {
+        "nom": "Curie",
+        "prenom": "Pierre",
+        "date_naissance": "1859-05-15",
+        "date_deces": "1906-04-19",
+        "description": "Physicien français, pionnier dans l’étude de la radioactivité.",
+        "faits_historiques_3": [
+            "Découvreur avec Marie Curie du polonium et du radium.",
+            "Prix Nobel de physique en 1903.",
+            "A contribué aux fondements de la physique nucléaire."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pierre_Curie_by_Dujardin_c1906.jpg/390px-Pierre_Curie_by_Dujardin_c1906.jpg",
+        "domaine": "Sciences"
+    }
+]

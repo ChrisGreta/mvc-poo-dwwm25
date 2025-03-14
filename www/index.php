@@ -8,9 +8,14 @@ switch ($route) {
         index();
         break;
 
-    case 'read':
-        require_once('controllers/woman.controler.php');
-        readWoman();
+    case 'women':
+        require_once('controllers/woman.controller.php');
+        readWomen();
+        break;
+
+    case 'men':
+        require_once('controllers/men.controller.php');
+        readAllMen();
         break;
 
     default:

@@ -1,5 +1,5 @@
 <?php
-class Woman
+class Men
 {
     public $nom;
     public $prenom;
@@ -12,15 +12,16 @@ class Woman
 
     public function __construct($nom, $prenom, $description, $url_image, $date_naissance, $date_deces, $domaine, $faits_historiques_3)
     {
-        $this->nom               = $nom;
-        $this->prenom            = $prenom;
-        $this->date_naissance    = $date_naissance;
-        $this->date_deces        = $date_deces;
-        $this->description       = $description;
-        $this->url_image         = $url_image;
-        $this->domaine           = $domaine;
-        $this->faits_historiques_3 = $faits_historiques_3;
+        $this->nom             = $nom;
+        $this->prenom          = $prenom;
+        $this->date_naissance  = $date_naissance;
+        $this->date_deces      = $date_deces;
+        $this->description     = $description;
+        $this->url_image       = $url_image;
+        $this->domaine         = $domaine;
+        $this->faits_historiques_3    = $faits_historiques_3;
     }
+
 
 
     public function formatDate($date)
@@ -33,6 +34,7 @@ class Woman
     {
         return "Nom Prénom: " . $this->nom . " " . $this->prenom;
     }
+
 
     // Méthode publique pour calculer l'âge
     public function calculateAge($birthDate = null, $deathDate = null)

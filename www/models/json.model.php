@@ -47,6 +47,8 @@ class Json
      * @param string $url L'URL du fichier JSON à récupérer.
      * @return mixed Le contenu décodé du fichier JSON, ou false en cas d'erreur.
      */
+
+
     public static function getJson($url)
     {
         // Récupère le contenu du fichier JSON depuis l'URL
