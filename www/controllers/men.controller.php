@@ -1,5 +1,4 @@
 <?php
-
 // Inclure le modèle
 require_once "models/men.model.php";
 
@@ -7,36 +6,37 @@ require_once "models/men.model.php";
 function readAllMen()
 {
     try {
-    // Charger les données
-    $jsonData = file_get_contents('_include/json/men.json');
-    $menArray = json_decode($jsonData, true);
-    $menObjects = [];
+        // Charger les données
+        $jsonData = file_get_contents('_include/json/men.json');
+        $menArray = json_decode($jsonData, true);
+        $menObjects = [];
 
 
-    $title = "Hommes Celebres";
-    $intro = "Bienvenue";
+        $title = "Hommes Celebres";
+        $intro = "Bienvenue";
 
-    // Créer un tableau d'objets Men
-    foreach ($menArray as $data) {
-        $menObjects[] = new Men(
-            $data['nom'],
-            $data['prenom'],
-            $data['description'],
-            $data['url_image'],
-            $data['date_naissance'],
-            $data['date_deces'],
-            $data['domaine'],
-            $data['faits_historiques_3']
-        );
-    }
+        // Créer un tableau d'objets Men
+        foreach ($menArray as $data) {
+            $menObjects[] = new Men(
+                $data['nom'],
+                $data['prenom'],
+                $data['description'],
+                $data['url_image'],
+                $data['date_naissance'],
+                $data['date_deces'],
+                $data['domaine'],
+                $data['faits_historiques_3'],
+                $data['moustache'],
+                $data['url_wikipedia'],
+            );
+        }
 
-    // Vue
-    ob_start();
-    require 'views/men.view.php';
-    $content_view = ob_get_clean();
+        // Vue
+        ob_start();
+        require 'views/men.view.php';
+        $content_view = ob_get_clean();
 
-    require 'views/base.view.php';
-
+        require 'views/base.view.php';
     } catch (Exception $e) {
         echo "Erreur : " . $e->getMessage();
     }

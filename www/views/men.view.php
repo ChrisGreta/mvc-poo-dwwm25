@@ -30,9 +30,14 @@
                                 <?php endforeach; ?>
                             </ul>
                         </li>
+                        <li class="list-group-item"><strong>Moustache :</strong> <?= $man->moustache ? 'Oui' : 'Non' ?>
+                        </li>
                     </ul>
                     <div class="card-body">
-                        <a href="man.php?id=<?= $man->id ?>" class="card-link">En savoir plus</a>
+                        <a href="<?= $man->getUrlWikipedia() ?>" target="blank" class="card-link">
+                            <img src="_include\icones\icons8-wikipédia.svg" alt="Wikipedia" style="width: 20px; height: 20px; margin-right: 10px;">
+                            Découvrez la biographie de <?= $man->prenom ?> <?= $man->nom ?>.
+                        </a>
                     </div>
                 </div>
             </div>

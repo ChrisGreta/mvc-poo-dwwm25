@@ -2,8 +2,8 @@
 
 function index() {
     try {
-        $title = "Page d'accueil";
-        $intro = "Bienvenue sur le site des hommes et femmes célèbres";
+        $title = "Hommes et Femmes célèbres";
+        $intro = "Bienvenue";
 
         ob_start();
         require 'views/home.view.php';

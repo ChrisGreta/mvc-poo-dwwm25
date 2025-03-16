@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <?php foreach ($women as $woman): ?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card">
+                <div class="card" style="background-color: <?= $woman->getCardColor() ?>;">
                     <img src="<?= $woman->url_image ?>" class="card-img-top" alt="Portrait de <?= $woman->prenom ?> <?= $woman->nom ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?= $woman->prenom ?> <?= $woman->nom ?></h5>
@@ -33,7 +33,10 @@
                         </li>
                     </ul>
                     <div class="card-body">
-                        <a href="woman.php?id=<?= $woman->id ?>" class="card-link">En savoir plus</a>
+                    <a href="<?= $woman->getUrlWikipedia() ?>" target="blank" class="card-link">
+                            <img src="_include\icones\icons8-wikipédia.svg" alt="Wikipedia" style="width: 20px; height: 20px; margin-right: 10px;">
+                            Découvrez la biographie de <?= $woman->prenom ?> <?= $woman->nom ?>.
+                        </a>
                     </div>
                 </div>
             </div>

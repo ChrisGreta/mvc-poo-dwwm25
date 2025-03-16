@@ -11,7 +11,9 @@
             "A influencé profondément la physique moderne."
         ],
         "url_image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
-        "domaine": "Sciences"
+        "domaine": "Sciences",
+        "moustache": true,
+        "url_wikipedia": "https://fr.wikipedia.org/wiki/Albert_Einstein"
     },
     {
         "nom": "Mandela",
@@ -25,7 +27,9 @@
             "Symbole mondial de paix et de réconciliation."
         ],
         "url_image": "https://les-yeux-du-monde.fr/wp-content/uploads/2013/12/Biographie-Mandela-537x806.jpeg",
-        "domaine": "Politique"
+        "domaine": "Politique",
+        "moustache": false,
+        "url_wikipedia": "https://fr.wikipedia.org/wiki/Nelson_Mandela"
     },
     {
         "nom": "Da Vinci",
@@ -39,7 +43,9 @@
             "Symbole de la Renaissance italienne."
         ],
         "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Leonardo_da_Vinci.jpeg/480px-Leonardo_da_Vinci.jpeg",
-        "domaine": "Arts et Sciences"
+        "domaine": "Arts et Sciences",
+        "moustache": true,
+        "url_wikipedia": "https://fr.wikipedia.org/wiki/L%C3%A9onard_de_Vinci"
     },
     {
         "nom": "Luther King",
@@ -53,7 +59,9 @@
             "Figure emblématique de la lutte non-violente."
         ],
         "url_image": "https://m.media-amazon.com/images/I/613ugr8+0bL._AC_SY300_SX300_.jpg",
-        "domaine": "Droits civiques"
+        "domaine": "Droits civiques",
+        "moustache": true,
+        "url_wikipedia": "https://fr.wikipedia.org/wiki/Martin_Luther_King"
     },
     {
         "nom": "Curie",
@@ -67,6 +75,56 @@
             "A contribué aux fondements de la physique nucléaire."
         ],
         "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pierre_Curie_by_Dujardin_c1906.jpg/390px-Pierre_Curie_by_Dujardin_c1906.jpg",
-        "domaine": "Sciences"
+        "domaine": "Sciences",
+        "moustache": true,
+        "url_wikipedia": "https://fr.wikipedia.org/wiki/Pierre_Curie"
+    },
+    {
+        "nom": "Newton",
+        "prenom": "Isaac",
+        "date_naissance": "1643-01-04",
+        "date_deces": "1727-03-31",
+        "description": "Mathématicien et physicien anglais, considéré comme l'un des plus grands scientifiques de tous les temps.",
+        "faits_historiques_3": [
+            "Auteur des lois du mouvement et de la gravitation universelle.",
+            "A inventé le calcul infinitésimal.",
+            "A écrit 'Philosophiæ Naturalis Principia Mathematica'."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/GodfreyKneller-IsaacNewton-1689.jpg/330px-GodfreyKneller-IsaacNewton-1689.jpg",
+        "domaine": "Sciences",
+        "moustache": false,
+        "url_wikipedia": "https://fr.wikipedia.org/wiki/Isaac_Newton"
+    },
+    {
+        "nom": "Tesla",
+        "prenom": "Nikola",
+        "date_naissance": "1856-07-10",
+        "date_deces": "1943-01-07",
+        "description": "Inventeur et ingénieur électrique serbo-américain, connu pour ses contributions aux champs du courant alternatif.",
+        "faits_historiques_3": [
+            "A développé la technologie du courant alternatif.",
+            "A inventé la bobine de Tesla.",
+            "Ses idées ont contribué au développement de la radio."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Tesla_Sarony.jpg/300px-Tesla_Sarony.jpg",
+        "domaine": "Inventions",
+        "moustache": true,
+        "url_wikipedia": "https://fr.wikipedia.org/wiki/Nikola_Tesla"
+    },
+    {
+        "nom": "Shakespeare",
+        "prenom": "William",
+        "date_naissance": "1564-04-23",
+        "date_deces": "1616-04-23",
+        "description": "Dramaturge et poète anglais, considéré comme l'un des plus grands écrivains de la langue anglaise.",
+        "faits_historiques_3": [
+            "A écrit des pièces comme 'Hamlet', 'Macbeth' et 'Roméo et Juliette'.",
+            "A créé un grand nombre de mots et d'expressions dans la langue anglaise.",
+            "Ses œuvres sont toujours jouées dans le monde entier."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/330px-Shakespeare.jpg",
+        "domaine": "Littérature",
+        "moustache": true,
+        "url_wikipedia": "hhttps://fr.wikipedia.org/wiki/William_Shakespeare"
     }
 ]

@@ -16,7 +16,7 @@
                     <img src="https://cdn.pixabay.com/photo/2017/10/10/02/50/gentlemen-2835737_1280.jpg"
                         class="equal-image mb-3"
                         alt="Portrait d'un homme célèbre">
-                    <a href="index.php?route=men" class="btn btn-primary mt-3">Voir les hommes</a>
+                    <a href="index.php?route=men" class="btn btn-secondary mt-3">Voir les hommes</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     <img src="https://media.ouest-france.fr/v1/pictures/69e459284d3a089ad486efea2541fcfe-17026317.jpg?width=1260&client_id=eds&sign=5c8611eee6b38c4a1029b0e16ef5ecaea3595435dc98ac4609aa3da572138085"
                         class="equal-image mb-3"
                         alt="Portrait d'une femme célèbre">
-                    <a href="index.php?route=women" class="btn btn-success mt-3">Voir les femmes</a>
+                    <a href="index.php?route=women" class="btn btn-warning mt-3">Voir les femmes</a>
                 </div>
             </div>
         </div>

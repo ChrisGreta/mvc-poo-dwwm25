@@ -1,34 +1,39 @@
 <?php
-
-//inclus les modèles qui seront utilisés par mon controller
 require_once "models/woman.model.php";
-
 
 function readWomen()
 {
-
     try {
-        // Charger et décoder le fichier JSON directement
+        // Lecture du fichier JSON
         $json = file_get_contents('_include/json/woman.json');
 
         if ($json === false) {
             throw new Exception("Erreur lors de la lecture du fichier JSON.");
         }
 
-        $data = json_decode($json, true); // Décoder en tableau associatif
+        // décode le contenu JSON, on veux un tableau pas un objet
+        $data = json_decode($json, true);
 
+        // vérifié si le décodage JSON
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new Exception("Erreur de décodage JSON : " . json_last_error_msg());
         }
 
-        $title = "Femmes Celebres";
+        $title = "Femmes Célèbres";
         $intro = "Bienvenue";
 
-        // Créer un tableau pour stocker les objets Woman
+        $colors = ['#FFB6C1', '#FFD700', '#E6E6FA', '#ADD8E6', '#F08080'];
+        $index = 0;
+
+
+        // Création des objets Woman
         $women = [];
+
         foreach ($data['femmesCelebres'] as $womanData) {
-            $faits = $womanData['faits_historiques_3'];
-            $woman = new Woman(
+            $color = $colors[$index % count($colors)];
+            $index++;
+
+            $women[] = new Woman(
                 $womanData['nom'],
                 $womanData['prenom'],
                 $womanData['description'],
@@ -36,16 +41,21 @@ function readWomen()
                 $womanData['date_naissance'],
                 $womanData['date_deces'],
                 $womanData['domaine'],
-                $faits
+                $womanData['faits_historiques_3'],
+                $womanData['url_wikipedia'],
+                $color
             );
-            $women[] = $woman;
         }
 
-        // Passer les données à la vue
+        // ob_start() commence une mise en mémoire tampon de la sortie. 
+        // Cela permet de capturer le contenu généré par la vue woman.view.php sans l'afficher immédiatement.
         ob_start();
         require 'views/woman.view.php';
+
+        // ob_get_clean() capture le contenu de la mise en mémoire tampon et le stocke dans la variable $content_view.
         $content_view = ob_get_clean();
 
+        //  la page de base est incluse incluant la structure HTML générale
         require 'views/base.view.php';
     } catch (Exception $e) {
         echo "Erreur : " . $e->getMessage();

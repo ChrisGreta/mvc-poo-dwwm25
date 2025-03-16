@@ -12,7 +12,8 @@
                 "Première personne à recevoir deux prix Nobel dans des domaines différents."
             ],
             "url_image": "https://wallpaperaccess.com/full/1818914.jpg",
-            "domaine": "Science"
+            "domaine": "Science",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Marie_Curie"
         },
         {
             "nom": "Franklin",
@@ -26,7 +27,8 @@
                 "Son travail n'a été pleinement reconnu qu'après sa mort."
             ],
             "url_image": "https://upload.wikimedia.org/wikipedia/commons/9/97/Rosalind_Franklin.jpg",
-            "domaine": "Science"
+            "domaine": "Science",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Rosalind_Franklin"
         },
         {
             "nom": "Lovelace",
@@ -40,7 +42,8 @@
                 "A prédit l'importance des ordinateurs bien avant leur invention."
             ],
             "url_image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Ada_Byron_daguerreotype_by_Antoine_Claudet_1843_or_1850_-_cropped.png",
-            "domaine": "Informatique"
+            "domaine": "Informatique",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Ada_Lovelace"
         },
         {
             "nom": "Williams",
@@ -54,7 +57,8 @@
                 "Modèle de persévérance et de puissance sur le court."
             ],
             "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Williams_S._RG18_%2817%29_%2841168711240%29.jpg/398px-Williams_S._RG18_%2817%29_%2841168711240%29.jpg",
-            "domaine": "Sport"
+            "domaine": "Sport",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Serena_Williams"
         },
         {
             "nom": "Hepburn",
@@ -68,7 +72,8 @@
                 "Considérée comme une des plus grandes icônes du cinéma."
             ],
             "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/AudreyKHepburn.jpg/800px-AudreyKHepburn.jpg",
-            "domaine": "Cinéma"
+            "domaine": "Cinéma",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Audrey_Hepburn"
         },
         {
             "nom": "Meitner",
@@ -82,7 +87,38 @@
                 "L'élément chimique Meitnérium a été nommé en son honneur."
             ],
             "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Lise_Meitner_%281878-1968%29%2C_lecturing_at_Catholic_University%2C_Washington%2C_D.C.%2C_1946.jpg/220px-Lise_Meitner_%281878-1968%29%2C_lecturing_at_Catholic_University%2C_Washington%2C_D.C.%2C_1946.jpg",
-            "domaine": "Science"
+            "domaine": "Science",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Lise_Meitner"
+        },
+        {
+            "nom": "Frank",
+            "prenom": "Anne",
+            "date_naissance": "1929-06-12",
+            "date_deces": "1945-03-31",
+            "description": "Jeune diariste juive allemande, célèbre pour son journal intime relatant sa vie pendant la Seconde Guerre mondiale.",
+            "faits_historiques_3": [
+                "A écrit 'Le Journal d'Anne Frank'.",
+                "Son journal est devenu un témoignage majeur sur l'Holocauste.",
+                "Elle est l'un des symboles les plus poignants de la persécution des Juifs pendant la guerre."
+            ],
+            "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/AnneFrankSchoolPhoto.jpg/330px-AnneFrankSchoolPhoto.jpg",
+            "domaine": "Littérature",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Anne_Frank"
+        },
+        {
+            "nom": "Nightingale",
+            "prenom": "Florence",
+            "date_naissance": "1820-05-12",
+            "date_deces": "1910-08-13",
+            "description": "Infirmière anglaise, pionnière des soins infirmiers modernes.",
+            "faits_historiques_3": [
+                "A révolutionné les soins de santé et la profession d'infirmière.",
+                "A fondé l'école de formation des infirmières à Londres.",
+                "A inspiré la création de l'Organisation mondiale de la santé."
+            ],
+            "url_image": "https://upload.wikimedia.org/wikipedia/commons/1/12/Florence_Nightingale.jpg",
+            "domaine": "Santé",
+            "url_wikipedia": "https://fr.wikipedia.org/wiki/Florence_Nightingale"
         }
     ]
 }
