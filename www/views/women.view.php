@@ -1,13 +1,11 @@
-<?php if (isset($index) && $index !== null): ?>
-    <?php
-    $femme = $womenCelebres[$index];
-    ?>
-    <div class="container">
-        <div class="row">
+<div class="container my-5">
+    <div class="row g-4">
+        <?php if (isset($index) && $index !== null): ?>
+            <?php $femme = $womenCelebres[$index]; ?>
             <div class="col-md-12">
-                <div class="card" style="width: 100%; margin-bottom: 20px;">
-                    <img src="<?php echo $femme['url_image']; ?>" class="card-img-top" alt="<?php echo $femme['nom']; ?>">
-                    <div class="card-body">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="<?php echo $femme['url_image']; ?>" class="img-fluid rounded mb-3" style="max-width: 200px;" alt="<?php echo $femme['nom']; ?>">
                         <h5 class="card-title"><?php echo $femme['prenom'] . ' ' . $femme['nom']; ?></h5>
                         <p class="card-text"><?php echo $femme['description']; ?></p>
                     </div>
@@ -26,36 +24,28 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- Row -->
-    </div> <!-- Container -->
-<?php else: ?>
-    <div class="container">
-        <div class="row">
-            <?php
-            $index = 0;
-            // Parcours des femmes célèbres
-            foreach ($womenCelebres as $femme) {
-            ?>
-                <div class="col-md-4 d-flex flex-column  justify-content-start">
-                    <div class="card" style="width: 18rem;">
-                        <img src="<?= $femme['url_image'] ?>" class="card-img-top" alt="...">
+        <?php else: ?>
+            <?php $index = 0; ?>
+            <?php foreach ($womenCelebres as $femme): ?>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="<?= $femme['url_image'] ?>" class="card-img-top" alt="<?= $femme['nom'] ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?= $femme['prenom'] ?> <?= $femme['nom'] ?></h5>
                             <p class="card-text"><?= $femme['description'] ?></p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><?= $femme['date_naissance'] ?></li>
-                            <li class="list-group-item"><?= $femme['domaine'] ?></li>
+                            <li class="list-group-item">Date of Birth: <?= $femme['date_naissance'] ?></li>
+                            <li class="list-group-item">Domain: <?= $femme['domaine'] ?></li>
                         </ul>
-                        <div class="card-body">
-                            <a href="index.php?route=readWomen&index=<?= $index;?>" class="card-link">En savoir plus...</a>
+                        <div class="card-body text-center">
+                            <a href="index.php?route=readWomen&index=<?= $index; ?>" class="btn btn-primary">Learn More</a>
                         </div>
                     </div>
                 </div>
-            <?php
-                $index++;
-            }
-            ?>
-        </div> <!-- Row -->
-    </div> <!-- Container -->
-<?php endif; ?>
+                <?php $index++; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
