@@ -51,4 +51,25 @@ class Json{
             }
             return json_decode($jsonContent, false);
         }
+
+        /**
+         * Récupère et décode le fichier JSON des hommes célèbres.
+         *
+         * @return mixed Le contenu décodé du fichier JSON, ou false en cas d'erreur.
+         */
+        public static function readMen() {
+            $url = __DIR__ . '/../include/json/men.json';
+            return self::getJson($url);
+        }
+
+
+          /**
+     * Récupère et décode le fichier JSON des femmes célèbres.
+     *
+     * @return mixed Le contenu décodé du fichier JSON, ou false en cas d'erreur.
+     */
+    public static function readWomen() {
+        $url = __DIR__ . '/../include/json/women.json';
+        return self::getJson($url);
+    }
 }

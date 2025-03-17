@@ -1,8 +1,6 @@
-<h2 class= "text_centre">Bienvenue ! 😁</h2>
 <div class="container">
-        <div class="row">
+    <div class="row">
         <?php
-        
         $index = 0;
         // Parcours des femmes célèbres
         foreach ($femmesCelebres as $femme) {
@@ -19,13 +17,13 @@
                         <li class="list-group-item"><?= $femme->domaine ?></li>
                     </ul>
                     <div class="card-body">
-                        <a href="index.php?route=read&women=<?= $index;?>" class="card-link">En savoir plus...</a>
+                        <a href="index.php?route=readWomen&index=<?= $index;?>" class="card-link">En savoir plus...</a>
                     </div>
                 </div>
-            </diV>
+            </div>
         <?php
             $index++;
         }
         ?>
-        </div> <!-- Row -->
+    </div> <!-- Row -->
 </div> <!-- Container -->
