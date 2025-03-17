@@ -1,0 +1,88 @@
+{
+    "hommes_celebres": [
+    {
+        "nom": "Einstein",
+        "prenom": "Albert",
+        "date_naissance": "1879-03-14",
+        "date_deces": "1955-04-18",
+        "description": "Physicien théoricien célèbre pour la théorie de la relativité.",
+        "faits_historiques_3": [
+        "A développé la théorie de la relativité restreinte et générale.",
+        "Prix Nobel de physique en 1921 pour l'effet photoélectrique.",
+        "Son équation E=mc² est l'une des plus célèbres au monde."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
+        "domaine": "Science"
+    },
+    {
+        "nom": "Hawking",
+        "prenom": "Stephen",
+        "date_naissance": "1942-01-08",
+        "date_deces": "2018-03-14",
+        "description": "Physicien théoricien et cosmologiste ayant étudié les trous noirs.",
+        "faits_historiques_3": [
+        "A démontré que les trous noirs émettent un rayonnement (rayonnement de Hawking).",
+        "Auteur du best-seller 'Une brève histoire du temps'.",
+        "Malgré la SLA, a révolutionné la cosmologie moderne."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Stephen_Hawking.StarChild.jpg",
+        "domaine": "Science"
+    },
+    {
+        "nom": "Turing",
+        "prenom": "Alan",
+        "date_naissance": "1912-06-23",
+        "date_deces": "1954-06-07",
+        "description": "Mathématicien et informaticien pionnier de l'intelligence artificielle.",
+        "faits_historiques_3": [
+        "A décrypté le code Enigma durant la Seconde Guerre mondiale.",
+        "Considéré comme le père de l'informatique moderne.",
+        "A posé les bases du test de Turing sur l'intelligence artificielle."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg",
+        "domaine": "Informatique"
+    },
+    {
+        "nom": "Jordan",
+        "prenom": "Michael",
+        "date_naissance": "1963-02-17",
+        "date_deces": null,
+        "description": "Joueur de basketball considéré comme le plus grand de l'histoire.",
+        "faits_historiques_3": [
+        "Six fois champion NBA avec les Chicago Bulls.",
+        "Cinq fois MVP de la saison régulière.",
+        "Icône mondiale du sport et de la culture populaire."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Michael_Jordan_in_2014.jpg",
+        "domaine": "Sport"
+    },
+    {
+        "nom": "Chaplin",
+        "prenom": "Charlie",
+        "date_naissance": "1889-04-16",
+        "date_deces": "1977-12-25",
+        "description": "Acteur et réalisateur, pionnier du cinéma muet.",
+        "faits_historiques_3": [
+        "Créateur du personnage iconique de Charlot.",
+        "A réalisé et joué dans 'Les Temps Modernes' et 'Le Dictateur'.",
+        "L'un des artistes les plus influents du 20e siècle."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Charlie_Chaplin_portrait.jpg/800px-Charlie_Chaplin_portrait.jpg",
+        "domaine": "Cinéma"
+    },
+    {
+        "nom": "Oppenheimer",
+        "prenom": "J. Robert",
+        "date_naissance": "1904-04-22",
+        "date_deces": "1967-02-18",
+        "description": "Physicien américain, directeur du projet Manhattan.",
+        "faits_historiques_3": [
+        "A dirigé le projet Manhattan qui a développé la première bombe atomique.",
+        "A regretté l'utilisation de l'arme nucléaire après la guerre.",
+        "Connu pour sa citation 'Je suis devenu la Mort, le destructeur des mondes'."
+        ],
+        "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/JROppenheimer-LosAlamos.jpg/220px-JROppenheimer-LosAlamos.jpg",
+        "domaine": "Science"
+    }
+    ]
+}

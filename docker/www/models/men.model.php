@@ -1,5 +1,5 @@
 <?php
-    class woman{
+    class men{
         public $id;
         public $nom;
         public $prenom;
