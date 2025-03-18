@@ -55,6 +55,7 @@
 
 
 require_once 'models/json.model.php';
+require_once 'models/men.model.php';
 
 function readMen() {
     // Fetch data from men.json
@@ -64,11 +65,33 @@ function readMen() {
         echo "Error reading men.json";
         exit;
     }
-  // Pass data to the view
+
+    $menObjects = [];
+    foreach ($menCelebres->hommes_celebres as $data) {
+        $mustache = isset($data->mustache) ? $data->mustache : false;
+        $menObjects[] = new Men(
+            $data->nom,
+            $data->prenom,
+            $data->date_naissance,
+            $data->description,
+            $data->url_image,
+            $data->domaine,
+            $data->date_deces,
+            $data->faits_historiques_3,
+            $mustache
+        );
+    }
+
+    // Set title
     $title = "Hommes Celebres";
+
+    // Capture the view output
     ob_start();
     require_once 'views/men.view.php';
     $content = ob_get_clean();
+
+    // Include the base view
     require_once 'views/base.view.php';
-    }
+}
+
 
